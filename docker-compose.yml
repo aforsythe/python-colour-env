@@ -1,0 +1,13 @@
+services:
+  code-server:
+    build: .
+    container_name: code-server
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Los_Angeles
+    volumes:
+      - './config:/config'
+    ports:
+      - 8443:8443/tcp
+    restart: unless-stopped
